@@ -1,0 +1,42 @@
+--UserController:
+GET localhost:8081/user/getUsers - Получение всех пользователей из БД
+
+POST localhost:8081/user/save - Сохранить пользователя в БД
+- Body : "UserEntity" -
+    login : String
+    password : String
+
+GET localhost:8081/user - получение пользователя из БД
+- Param : "id" - айди пользователя
+
+DELETE localhost:8081/user/del/{id} удаление пользователя из БД
+- PathVariable : "id" - айди пользователя
+
+--ToDoController:
+POST localhost:8081/todo - создание задачи
+- Body : "ToDoEntity" -
+    title : String
+    description : String
+    completed : boolean
+- Param : "listId" - айди списка к которому прикрепить задачу
+
+PUT localhost:8081/todo/completed - изменение параметра выполнена ли задада
+- Param : "id" - айди задачи
+
+DELETE localhost:8081/todo/delete - удаление задачи из БД
+- Param : "id" - айди задачи
+
+GET localhost:8081/todo - получение задачи из БД
+- Param : "id" - айди задачи
+
+--ToDoListController
+POST localhost:8081/todolist - создание списка задач
+- Body : "ToDoListEntity" -
+    title : String
+- Param : "userId" - айди пользователя к которому создается список задач
+
+GET localhost:8081/todolist - получение списка задач из БД
+- Param : "id" - айди списка задач
+
+DELETE localhost:8081/todolist - удаление списка задач из БД
+- Param : "id" - айди списка задач
