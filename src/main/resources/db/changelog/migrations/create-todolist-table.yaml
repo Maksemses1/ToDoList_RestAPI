@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-todolist-table
+      author: maksemses
+      changes:
+        - createTable:
+            tableName: to_do_list_entity
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+
+              - addForeignKeyConstraint:
+                  baseTableName: to_do_list_entity
+                  baseColumnNames: user_id
+                  referencedTableName: user_entity
+                  referencedColumnNames: id
+                  onDelete: CASCADE

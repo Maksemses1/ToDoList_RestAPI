@@ -10,11 +10,11 @@ import lombok.experimental.Accessors;
 public class ToDoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
     private String title;
     private String description;
     private boolean completed;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id")
     private ToDoListEntity list;
 }

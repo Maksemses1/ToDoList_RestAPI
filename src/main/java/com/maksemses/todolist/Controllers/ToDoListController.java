@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1//todolist")
+@RequestMapping("/api/v1/todolist")
 public class ToDoListController {
     private final ToDoListService toDoListService;
 

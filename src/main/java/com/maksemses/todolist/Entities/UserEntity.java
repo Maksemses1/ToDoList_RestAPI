@@ -16,6 +16,6 @@ public class UserEntity {
     private Long id;
     private String login;
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.LAZY)
     private List<ToDoListEntity> toDoListEntity;
 }

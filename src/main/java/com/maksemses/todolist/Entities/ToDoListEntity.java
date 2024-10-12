@@ -14,7 +14,7 @@ public class ToDoListEntity {
     private String title;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "list")
     private List<ToDoEntity> toDoEntityList;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
 }

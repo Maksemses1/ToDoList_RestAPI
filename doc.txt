@@ -1,12 +1,12 @@
 --UserController:
-GET localhost:8081/user/getUsers - Получение всех пользователей из БД
+GET localhost:8081/api/v1/user/getUsers - Получение всех пользователей из БД
 
-POST localhost:8081/user/save - Сохранить пользователя в БД
+POST localhost:8081/api/v1/user/save - Сохранить пользователя в БД
 - Body : "UserEntity" -
     login : String
     password : String
 
-GET localhost:8081/user - получение пользователя из БД
+GET localhost:8081/api/v1/user - получение пользователя из БД
 - Param : "id" - айди пользователя
 
 DELETE localhost:8081/api/v1/user/del/{id} удаление пользователя из БД
