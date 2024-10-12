@@ -1,7 +1,6 @@
 package com.maksemses.todolist.Models;
 
 import com.maksemses.todolist.Entities.ToDoListEntity;
-import com.maksemses.todolist.Services.ToDoListService;
 import lombok.Data;
 
 import java.util.ArrayList;

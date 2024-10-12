@@ -1,7 +1,7 @@
 package com.maksemses.todolist.Controllers;
 
 import com.maksemses.todolist.Entities.ToDoEntity;
-import com.maksemses.todolist.Services.ToDoService;
+import com.maksemses.todolist.Services.Impl.ToDoServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/todo")
 public class ToDoController {
-    private final ToDoService toDoService;
+    private final ToDoServiceImpl toDoServiceImpl;
 
     @PostMapping
     public ResponseEntity createToDo(@RequestBody ToDoEntity toDoEntity,
                                      @RequestParam Long listId)
     {
-        return toDoService.createToDo(toDoEntity, listId);
+        return toDoServiceImpl.createToDo(toDoEntity, listId);
     }
     @PutMapping("/completed")
     public ResponseEntity completed(@RequestParam Long id){
-        return toDoService.completed(id);
+        return toDoServiceImpl.completed(id);
     }
     @DeleteMapping("/delete")
     public ResponseEntity delete(@RequestParam Long id){
-        return toDoService.deleteToDo(id);
+        return toDoServiceImpl.deleteToDo(id);
     }
     @GetMapping
     public ResponseEntity getToDo(@RequestParam Long id){
-        return toDoService.getToDo(id);
+        return toDoServiceImpl.getToDo(id);
     }
 
 }
