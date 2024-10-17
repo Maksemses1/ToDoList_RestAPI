@@ -1,42 +1,62 @@
---UserController:
-GET localhost:8081/api/v1/user/getUsers - Получение всех пользователей из БД
 
-POST localhost:8081/api/v1/user/save - Сохранить пользователя в БД
-- Body : "UserEntity" -
-    login : String
-    password : String
+### UserController
 
-GET localhost:8081/api/v1/user - получение пользователя из БД
-- Param : "id" - айди пользователя
+1. **Get All Users**
+   - **Endpoint**: `GET localhost:8081/api/v1/user/getUsers`
+   - **Description**: Retrieve all users from the database.
 
-DELETE localhost:8081/api/v1/user/del/{id} удаление пользователя из БД
-- PathVariable : "id" - айди пользователя
+2. **Save User**
+   - **Endpoint**: `POST localhost:8081/api/v1/user/save`
+   - **Body**: "UserEntity" -
+     - `login`: String
+     - `password`: String
 
---ToDoController:
-POST localhost:8081/api/v1/todo - создание задачи
-- Body : "ToDoEntity" -
-    title : String
-    description : String
-    completed : boolean
-- Param : "listId" - айди списка к которому прикрепить задачу
+3. **Get User by ID**
+   - **Endpoint**: `GET localhost:8081/api/v1/user`
+   - **Param**: `id` - ID of the user
 
-PUT localhost:8081/api/v1/todo/completed - изменение параметра выполнена ли задада
-- Param : "id" - айди задачи
+4. **Delete User**
+   - **Endpoint**: `DELETE localhost:8081/api/v1/user/del/{id}`
+   - **PathVariable**: `id` - ID of the user
 
-DELETE localhost:8081/api/v1/todo/delete - удаление задачи из БД
-- Param : "id" - айди задачи
+---
 
-GET localhost:8081/api/v1/todo - получение задачи из БД
-- Param : "id" - айди задачи
+### ToDoController
 
---ToDoListController
-POST localhost:8081/api/v1/todolist - создание списка задач
-- Body : "ToDoListEntity" -
-    title : String
-- Param : "userId" - айди пользователя к которому создается список задач
+1. **Create Task**
+   - **Endpoint**: `POST localhost:8081/api/v1/todo`
+   - **Body**: "ToDoEntity" -
+     - `title`: String
+     - `description`: String
+     - `completed`: boolean
+   - **Param**: `listId` - ID of the list to which the task is attached
 
-GET localhost:8081/api/v1/todolist - получение списка задач из БД
-- Param : "id" - айди списка задач
+2. **Update Task Completion Status**
+   - **Endpoint**: `PUT localhost:8081/api/v1/todo/completed`
+   - **Param**: `id` - ID of the task
 
-DELETE localhost:8081/api/v1/todolist - удаление списка задач из БД
-- Param : "id" - айди списка задач
+3. **Delete Task**
+   - **Endpoint**: `DELETE localhost:8081/api/v1/todo/delete`
+   - **Param**: `id` - ID of the task
+
+4. **Get Task by ID**
+   - **Endpoint**: `GET localhost:8081/api/v1/todo`
+   - **Param**: `id` - ID of the task
+
+---
+
+### ToDoListController
+
+1. **Create Task List**
+   - **Endpoint**: `POST localhost:8081/api/v1/todolist`
+   - **Body**: "ToDoListEntity" -
+     - `title`: String
+   - **Param**: `userId` - ID of the user to whom the task list is created
+
+2. **Get Task List by ID**
+   - **Endpoint**: `GET localhost:8081/api/v1/todolist`
+   - **Param**: `id` - ID of the task list
+
+3. **Delete Task List**
+   - **Endpoint**: `DELETE localhost:8081/api/v1/todolist`
+   - **Param**: `id` - ID of the task list
